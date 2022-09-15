@@ -1,17 +1,10 @@
-import 'package:bb_apps/bb_app/presentation/widgets/list_tile.dart';
-import 'package:flutter/material.dart';
-import '../core/app_country/app_country.dart';
-import '../data/FirebaseFunctions.dart';
+part of bb_apps;
 
 class Home extends StatelessWidget {
-  const Home({super.key});
+  const Home({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    test() async {
-      return await getCountry();
-    }
-
     FirebaseFunctions().fetchData();
 
     return Scaffold(
@@ -23,12 +16,12 @@ class Home extends StatelessWidget {
             future: FirebaseFunctions().fetchData(),
             builder: (context, snapshot) {
               if (snapshot.hasData) {
-                List? accualData = snapshot.data;
+                List? accualData = snapshot.data as List?;
                 return CustomListTile(
                   appData: accualData ?? [],
                 );
               } else {
-                return Center(
+                return const Center(
                   child: Text("No app added yet"),
                 );
               }

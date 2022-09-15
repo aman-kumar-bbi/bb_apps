@@ -1,4 +1,6 @@
-import 'dart:core';
+ part of bb_apps;
+
+
 
 class AppDetails {
   String uid;
@@ -18,12 +20,12 @@ class AppDetails {
   });
 
     AppDetails.fromJson(this.uid, Map<String, dynamic> json)
-      : appName = json['appName'],
-        publisherName = json['publisherName'],
-        region = json['region'],
+      : appName = json['appName'] as String,
+        publisherName = json['publisherName'] as String,
+        region = json['region'] as String,
 
         platform = (json['platform'] as List)
-            .map((e) => BBPlatform.fromJson(e))
+            .map((e) => BBPlatform.fromJson(e as Map<String,dynamic>))
             .toList();
 
 }
@@ -34,7 +36,7 @@ class BBPlatform {
   BBPlatform({required this.operatingSystem, required this.url});
 
   BBPlatform.fromJson(Map<String, dynamic> json)
-      : operatingSystem = json["operatingSystem"],
-      url=json["url"];
+      : operatingSystem = json["operatingSystem"] as String,
+      url=json["url"] as String;
   Map<String, dynamic> toJson() => {"operatingSystem": operatingSystem,"url":url};
 }
