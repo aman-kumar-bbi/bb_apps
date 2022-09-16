@@ -2,7 +2,6 @@ library bb_apps;
 
 import 'dart:convert';
 import 'dart:io';
-import 'dart:js';
 import 'package:app_launcher/app_launcher.dart';
 import 'package:device_apps/device_apps.dart';
 import 'package:firebase_database/firebase_database.dart';
