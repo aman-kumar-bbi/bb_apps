@@ -2,11 +2,11 @@ library bb_apps;
 
 import 'dart:convert';
 import 'dart:io';
+import 'dart:js';
 import 'package:app_launcher/app_launcher.dart';
 import 'package:device_apps/device_apps.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 import 'package:url_launcher/url_launcher.dart';
 

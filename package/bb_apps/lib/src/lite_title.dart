@@ -23,11 +23,15 @@ class CustomListTile extends StatelessWidget {
                         child: InkWell(
                           onTap: () {
                             if (Platform.isAndroid) {
-                              openPlayStore(specificRegionList[index]
-                                  ["platform"][0]["url"] as String);
+                              openPlayStore(
+                                  specificRegionList[index]["platform"][0]
+                                      ["url"] as String,
+                                  context);
                             } else if (Platform.isIOS) {
-                              openAppStore(specificRegionList[index]["platform"]
-                                  [1]["url"] as String);
+                              openAppStore(
+                                  specificRegionList[index]["platform"][1]
+                                      ["url"] as String,
+                                  context);
                             }
                           },
                           child: Container(
