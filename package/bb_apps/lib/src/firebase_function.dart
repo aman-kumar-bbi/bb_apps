@@ -1,18 +1,19 @@
- part of bb_apps;
-
-
+part of bb_apps;
 
 class FirebaseFunctions {
   List appDataInMap = [];
   Future<List?> fetchData() async {
-    DatabaseReference ref = FirebaseDatabase.instance.ref("bb_apps").ref;
+    FirebaseDatabase database;
+    database = FirebaseDatabase();
+    final databaseReference = database.reference();
 
-    DatabaseEvent event = await ref.once();
+    var ref = await databaseReference.child("bb_apps").once();
 
-    Map bbAppJson = event.snapshot.value as Map<dynamic, dynamic>;
+    // DatabaseReference ref = FirebaseDatabase.instance.ref("bb_apps").ref;
+    // DatabaseEvent event = await ref.once();
+
+    Map bbAppJson = ref.value as Map<dynamic, dynamic>;
     appDataInMap = bbAppJson.values.toList();
-    
-    
 
     return appDataInMap;
   }
