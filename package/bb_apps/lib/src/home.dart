@@ -15,10 +15,14 @@ class Home extends StatelessWidget {
         body: FutureBuilder(
             future: FirebaseFunctions().fetchData(),
             builder: (context, snapshot) {
-              if (snapshot.hasData) {
+              if (snapshot.connectionState == ConnectionState.done) {
                 List? accualData = snapshot.data as List?;
                 return CustomListTile(
                   appData: accualData ?? [],
+                );
+              } else if (snapshot.connectionState == ConnectionState.waiting) {
+                return const Center(
+                  child: CircularProgressIndicator(),
                 );
               } else {
                 return const Center(
