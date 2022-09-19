@@ -30,11 +30,12 @@ void openPlayStore(String urla, BuildContext context) async {
 void openAppStore(String id, BuildContext context) async {
   // final url =
   //     Uri.parse("https://apps.apple.com/in/story/id$id?itscg=10000&itsct=");
-  // if (await canLaunchUrl(url)) {
-  //   await launchUrl(url);
-  // } else {
-  //   snackBar(context);
-  // }
+  final url = "https://apps.apple.com/in/story/id$id?itscg=10000&itsct=";
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    snackBar(context);
+  }
 }
 
 snackBar(BuildContext context) {
