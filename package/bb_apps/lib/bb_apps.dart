@@ -7,7 +7,7 @@ import 'package:device_apps/device_apps.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:url_launcher/url_launcher.dart';
+// import 'package:url_launcher/url_launcher.dart';
 
 part 'src/app_country.dart';
 part 'src/filter_data.dart';
