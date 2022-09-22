@@ -1,12 +1,12 @@
 part of bb_apps;
 
 class Home extends StatelessWidget {
-  const Home({Key? key}) : super(key: key);
+  List? bbAppListFromFirebase;
+  Home({required this.bbAppListFromFirebase});
 
   @override
   Widget build(BuildContext context) {
-    FirebaseFunctions().fetchData();
-
+    // print("aman List ${FirebaseFunctions().fetchData()}");
     return Scaffold(
         appBar: AppBar(
           title: const Text("BB Apps"),
@@ -18,7 +18,7 @@ class Home extends StatelessWidget {
               if (snapshot.connectionState == ConnectionState.done) {
                 List? accualData = snapshot.data as List?;
                 return CustomListTile(
-                  appData: accualData ?? [],
+                  appData: bbAppListFromFirebase ?? [],
                 );
               } else if (snapshot.connectionState == ConnectionState.waiting) {
                 return const Center(

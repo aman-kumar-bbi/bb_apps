@@ -14,7 +14,6 @@ class FirebaseFunctions {
 
     Map bbAppJson = ref.value as Map<dynamic, dynamic>;
     appDataInMap = bbAppJson.values.toList();
-
     return appDataInMap;
   }
 }
