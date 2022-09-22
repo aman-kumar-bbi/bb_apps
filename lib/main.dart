@@ -5,23 +5,25 @@ import 'package:flutter/material.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(const MyApp());
+  runApp(MyApp(
+    listofBBAppsToDisplay: [],
+  ));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  List listofBBAppsToDisplay;
+  MyApp({required this.listofBBAppsToDisplay});
 
   @override
   Widget build(BuildContext context) {
-    List demoList = [];
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Home(
-        bbAppListFromFirebase: [],
+      home: BBAppHome(
+        bbAppListFromFirebase: listofBBAppsToDisplay,
       ),
     );
   }

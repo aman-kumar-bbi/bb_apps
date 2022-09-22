@@ -1,12 +1,11 @@
 part of bb_apps;
 
-class Home extends StatelessWidget {
+class BBAppHome extends StatelessWidget {
   List? bbAppListFromFirebase;
-  Home({required this.bbAppListFromFirebase});
+  BBAppHome({Key? key, required this.bbAppListFromFirebase}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // print("aman List ${FirebaseFunctions().fetchData()}");
     return Scaffold(
         appBar: AppBar(
           title: const Text("BB Apps"),
@@ -31,4 +30,9 @@ class Home extends StatelessWidget {
               }
             }));
   }
+}
+
+class BBAppsArgs {
+  final List<dynamic> bbAppsList;
+  BBAppsArgs({required this.bbAppsList});
 }

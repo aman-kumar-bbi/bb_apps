@@ -12,7 +12,7 @@ import 'package:http/http.dart' as http;
 part 'src/app_country.dart';
 part 'src/filter_data.dart';
 part 'src/firebase_function.dart';
-part 'src/home.dart';
+part 'src/bb_app_home.dart';
 part 'src/lite_title.dart';
 part 'src/models.dart';
 part 'src/open_url.dart';
