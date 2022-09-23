@@ -16,16 +16,16 @@ void openPlayStore(String urla, BuildContext context) async {
     //   snackBar(context);
     // }
     final url = "https://play.google.com/store/apps/details?id=$urla";
-    // if (await canLaunch(url)) {
-    //   await launch(
-    //     url,
-    //     forceSafariVC: false,
-    //     forceWebView: false,
-    //     headers: <String, String>{'my_header_key': 'my_header_value'},
-    //   );
-    // } else {
-    //   snackBar(context);
-    // }
+    if (await canLaunch(url)) {
+      await launch(
+        url,
+        forceSafariVC: false,
+        forceWebView: false,
+        headers: <String, String>{'my_header_key': 'my_header_value'},
+      );
+    } else {
+      snackBar(context);
+    }
   }
 }
 
@@ -33,11 +33,11 @@ void openAppStore(String id, BuildContext context) async {
   // final url =
   //     Uri.parse("https://apps.apple.com/in/story/id$id?itscg=10000&itsct=");
   final url = "https://apps.apple.com/in/story/id$id?itscg=10000&itsct=";
-  // if (await canLaunch(url)) {
-  //   await launch(url);
-  // } else {
-  //   snackBar(context);
-  // }
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    snackBar(context);
+  }
 }
 
 snackBar(BuildContext context) {
