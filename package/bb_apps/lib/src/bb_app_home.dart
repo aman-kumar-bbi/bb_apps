@@ -18,7 +18,7 @@ class BBAppHome extends StatelessWidget {
                 List? accualData = snapshot.data as List?;
                 print("accualData$accualData");
                 return CustomListTile(
-                  appData: accualData ?? [],
+                  appData: bbAppListFromFirebase ?? [],
                 );
               } else if (snapshot.connectionState == ConnectionState.waiting) {
                 return const Center(
