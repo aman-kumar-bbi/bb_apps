@@ -23,6 +23,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: BBAppHome(
+        appBarTitle: 'BB Apps',
+        navBarColor: Colors.amber,
+        navBarStyle: TextStyle(color: Colors.pink),
         bbAppListFromFirebase: listofBBAppsToDisplay,
       ),
     );
