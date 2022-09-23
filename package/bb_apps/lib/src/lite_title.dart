@@ -2,8 +2,8 @@ part of bb_apps;
 
 class CustomListTile extends StatelessWidget {
   final List appData;
-
-  const CustomListTile({Key? key, required this.appData}) : super(key: key);
+  // ignore: use_key_in_widget_constructors
+  const CustomListTile({required this.appData});
   @override
   Widget build(BuildContext context) {
     List specificRegionList = [];
@@ -49,7 +49,7 @@ class CustomListTile extends StatelessWidget {
                                       Text(
                                         specificRegionList[index]["appName"]
                                             as String,
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             fontSize: 17,
                                             fontWeight: FontWeight.w600),
                                       )
@@ -60,7 +60,7 @@ class CustomListTile extends StatelessWidget {
                                       Text(
                                         specificRegionList[index]
                                             ["publisherName"] as String,
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             fontWeight: FontWeight.w600),
                                       )
                                     ],
@@ -71,23 +71,17 @@ class CustomListTile extends StatelessWidget {
                                                   ["url"] ==
                                               ""
                                           ? const SizedBox()
-                                          : Text(
-                                              "Android",
-                                            ),
+                                          : const Text("Android"),
                                       specificRegionList[index]["platform"][1]
                                                   ["url"] ==
                                               ""
                                           ? const SizedBox()
-                                          : Text(
-                                              "iOS",
-                                            ),
+                                          : const Text("iOS"),
                                       specificRegionList[index]["platform"][2]
                                                   ["url"] ==
                                               ""
                                           ? const SizedBox()
-                                          : Text(
-                                              "Web",
-                                            )
+                                          : const Text("Web")
                                     ],
                                   )
                                 ],
@@ -98,10 +92,8 @@ class CustomListTile extends StatelessWidget {
                       ));
                 });
           } else {
-            return Center(
-              child: Text(
-                "No app added yet",
-              ),
+            return const Center(
+              child: Text("No app added yet"),
             );
           }
         });

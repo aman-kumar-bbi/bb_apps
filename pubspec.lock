@@ -19,8 +19,10 @@ packages:
     dependency: "direct main"
     description:
       path: "package/bb_apps"
-      relative: true
-    source: path
+      ref: HEAD
+      resolved-ref: "2cfe8ddb976082427cd09290bb79890584ec2bba"
+      url: "https://github.com/aman-kumar-bbi/bb_apps.git"
+    source: git
     version: "0.0.1"
   boolean_selector:
     dependency: transitive

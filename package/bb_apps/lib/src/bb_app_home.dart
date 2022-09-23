@@ -2,35 +2,23 @@ part of bb_apps;
 
 class BBAppHome extends StatelessWidget {
   List? bbAppListFromFirebase;
-  Color navBarColor;
-
-  String titleName;
-  TextStyle navBarStyle;
-  BBAppHome(
-      {Key? key,
-      required this.bbAppListFromFirebase,
-      required this.navBarColor,
-      required this.navBarStyle,
-      required this.titleName})
-      : super(key: key);
+  BBAppHome({Key? key, required this.bbAppListFromFirebase}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: navBarColor,
-          title: Text(
-            titleName,
-            style: navBarStyle,
-          ),
+          title: const Text("BB Apps"),
+          centerTitle: true,
         ),
         body: FutureBuilder(
             future: FirebaseFunctions().fetchData(),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.done) {
                 List? accualData = snapshot.data as List?;
+                print("accualData$accualData");
                 return CustomListTile(
-                  appData: bbAppListFromFirebase ?? [],
+                  appData: accualData ?? [],
                 );
               } else if (snapshot.connectionState == ConnectionState.waiting) {
                 return const Center(
