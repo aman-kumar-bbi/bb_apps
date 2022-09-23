@@ -2,26 +2,14 @@ part of bb_apps;
 
 class BBAppHome extends StatelessWidget {
   List? bbAppListFromFirebase;
-  final TextStyle navBarStyle;
-  final Color navBarColor;
-  final String appBarTitle;
-  BBAppHome(
-      {Key? key,
-      required this.bbAppListFromFirebase,
-      required this.appBarTitle,
-      required this.navBarColor,
-      required this.navBarStyle})
-      : super(key: key);
+  BBAppHome({Key? key, required this.bbAppListFromFirebase}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: navBarColor,
-          title: Text(
-            'BB Apps',
-            style: navBarStyle,
-          ),
+          title: const Text("BB Apps"),
+          centerTitle: true,
         ),
         body: FutureBuilder(
             future: FirebaseFunctions().fetchData(),
