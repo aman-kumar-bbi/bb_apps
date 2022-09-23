@@ -3,7 +3,7 @@ part of bb_apps;
 class BBAppHome extends StatelessWidget {
   List? bbAppListFromFirebase;
   Color navBarColor;
-  FontStyle? appFont;
+
   String titleName;
   TextStyle navBarStyle;
   BBAppHome(
@@ -11,7 +11,6 @@ class BBAppHome extends StatelessWidget {
       required this.bbAppListFromFirebase,
       required this.navBarColor,
       required this.navBarStyle,
-      required this.appFont,
       required this.titleName})
       : super(key: key);
 
@@ -32,7 +31,6 @@ class BBAppHome extends StatelessWidget {
                 List? accualData = snapshot.data as List?;
                 return CustomListTile(
                   appData: bbAppListFromFirebase ?? [],
-                  appFont: appFont,
                 );
               } else if (snapshot.connectionState == ConnectionState.waiting) {
                 return const Center(

@@ -2,9 +2,8 @@ part of bb_apps;
 
 class CustomListTile extends StatelessWidget {
   final List appData;
-  final FontStyle? appFont;
-  // ignore: use_key_in_widget_constructors
-  const CustomListTile({required this.appData, required this.appFont});
+
+  const CustomListTile({Key? key, required this.appData}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     List specificRegionList = [];
@@ -51,7 +50,6 @@ class CustomListTile extends StatelessWidget {
                                         specificRegionList[index]["appName"]
                                             as String,
                                         style: TextStyle(
-                                            fontStyle: appFont,
                                             fontSize: 17,
                                             fontWeight: FontWeight.w600),
                                       )
@@ -63,7 +61,6 @@ class CustomListTile extends StatelessWidget {
                                         specificRegionList[index]
                                             ["publisherName"] as String,
                                         style: TextStyle(
-                                            fontStyle: appFont,
                                             fontWeight: FontWeight.w600),
                                       )
                                     ],
@@ -76,9 +73,6 @@ class CustomListTile extends StatelessWidget {
                                           ? const SizedBox()
                                           : Text(
                                               "Android",
-                                              style: TextStyle(
-                                                fontStyle: appFont,
-                                              ),
                                             ),
                                       specificRegionList[index]["platform"][1]
                                                   ["url"] ==
@@ -86,9 +80,6 @@ class CustomListTile extends StatelessWidget {
                                           ? const SizedBox()
                                           : Text(
                                               "iOS",
-                                              style: TextStyle(
-                                                fontStyle: appFont,
-                                              ),
                                             ),
                                       specificRegionList[index]["platform"][2]
                                                   ["url"] ==
@@ -96,9 +87,6 @@ class CustomListTile extends StatelessWidget {
                                           ? const SizedBox()
                                           : Text(
                                               "Web",
-                                              style: TextStyle(
-                                                fontStyle: appFont,
-                                              ),
                                             )
                                     ],
                                   )
@@ -113,9 +101,6 @@ class CustomListTile extends StatelessWidget {
             return Center(
               child: Text(
                 "No app added yet",
-                style: TextStyle(
-                  fontStyle: appFont,
-                ),
               ),
             );
           }
