@@ -2,8 +2,9 @@ part of bb_apps;
 
 class CustomListTile extends StatelessWidget {
   final List appData;
+  final FontStyle? appFont;
   // ignore: use_key_in_widget_constructors
-  const CustomListTile({required this.appData});
+  const CustomListTile({required this.appData, required this.appFont});
   @override
   Widget build(BuildContext context) {
     List specificRegionList = [];
@@ -49,7 +50,8 @@ class CustomListTile extends StatelessWidget {
                                       Text(
                                         specificRegionList[index]["appName"]
                                             as String,
-                                        style: const TextStyle(
+                                        style: TextStyle(
+                                            fontStyle: appFont,
                                             fontSize: 17,
                                             fontWeight: FontWeight.w600),
                                       )
@@ -60,7 +62,8 @@ class CustomListTile extends StatelessWidget {
                                       Text(
                                         specificRegionList[index]
                                             ["publisherName"] as String,
-                                        style: const TextStyle(
+                                        style: TextStyle(
+                                            fontStyle: appFont,
                                             fontWeight: FontWeight.w600),
                                       )
                                     ],
@@ -71,17 +74,32 @@ class CustomListTile extends StatelessWidget {
                                                   ["url"] ==
                                               ""
                                           ? const SizedBox()
-                                          : const Text("Android"),
+                                          : Text(
+                                              "Android",
+                                              style: TextStyle(
+                                                fontStyle: appFont,
+                                              ),
+                                            ),
                                       specificRegionList[index]["platform"][1]
                                                   ["url"] ==
                                               ""
                                           ? const SizedBox()
-                                          : const Text("iOS"),
+                                          : Text(
+                                              "iOS",
+                                              style: TextStyle(
+                                                fontStyle: appFont,
+                                              ),
+                                            ),
                                       specificRegionList[index]["platform"][2]
                                                   ["url"] ==
                                               ""
                                           ? const SizedBox()
-                                          : const Text("Web")
+                                          : Text(
+                                              "Web",
+                                              style: TextStyle(
+                                                fontStyle: appFont,
+                                              ),
+                                            )
                                     ],
                                   )
                                 ],
@@ -92,8 +110,13 @@ class CustomListTile extends StatelessWidget {
                       ));
                 });
           } else {
-            return const Center(
-              child: Text("No app added yet"),
+            return Center(
+              child: Text(
+                "No app added yet",
+                style: TextStyle(
+                  fontStyle: appFont,
+                ),
+              ),
             );
           }
         });

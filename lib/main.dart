@@ -24,6 +24,10 @@ class MyApp extends StatelessWidget {
       ),
       home: BBAppHome(
         bbAppListFromFirebase: listofBBAppsToDisplay,
+        appFont: null,
+        navBarColor: Colors.grey,
+        navBarStyle: const TextStyle(fontSize: 20),
+        titleName: 'BB Apps',
       ),
     );
   }
