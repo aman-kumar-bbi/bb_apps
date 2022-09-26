@@ -2,7 +2,14 @@ part of bb_apps;
 
 class BBAppHome extends StatelessWidget {
   List? bbAppListFromFirebase;
-  BBAppHome({Key? key, required this.bbAppListFromFirebase}) : super(key: key);
+  final TextStyle navBarStyle;
+  final Color navBarColor;
+  BBAppHome(
+      {Key? key,
+      required this.bbAppListFromFirebase,
+      required this.navBarStyle,
+      required this.navBarColor})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
