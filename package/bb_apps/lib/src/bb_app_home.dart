@@ -15,7 +15,11 @@ class BBAppHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("BB Apps"),
+          backgroundColor: navBarColor,
+          title: Text(
+            "BB Apps",
+            style: navBarStyle,
+          ),
           centerTitle: true,
         ),
         body: FutureBuilder(
