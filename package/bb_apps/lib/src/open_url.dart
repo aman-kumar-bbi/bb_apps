@@ -16,13 +16,15 @@ void openPlayStore(String urla, BuildContext context) async {
     //   snackBar(context);
     // }
     final url = "https://play.google.com/store/apps/details?id=$urla";
-    if (await url_luncher.canLaunchUrl(Uri.parse(url))) {
-      await url_luncher.launchUrl(Uri.parse(url),
-          mode: url_luncher.LaunchMode.externalApplication
-          // forceSafariVC: false,
-          // forceWebView: false,
-          // headers: <String, String>{'my_header_key': 'my_header_value'},
-          );
+    if (await url_luncher.canLaunch(url)) {
+      await url_luncher.launch(
+        url,
+
+        // mode: url_luncher.LaunchMode.externalApplication
+        // forceSafariVC: false,
+        // forceWebView: false,
+        // headers: <String, String>{'my_header_key': 'my_header_value'},
+      );
     } else {
       snackBar(context);
     }
