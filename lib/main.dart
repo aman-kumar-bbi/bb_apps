@@ -6,13 +6,14 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(MyApp(
-    listofBBAppsToDisplay: [],
+    listofBBAppsToDisplay: const [],
   ));
 }
 
+// ignore: must_be_immutable
 class MyApp extends StatelessWidget {
   List listofBBAppsToDisplay;
-  MyApp({required this.listofBBAppsToDisplay});
+  MyApp({Key? key, required this.listofBBAppsToDisplay}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
       home: BBAppHome(
         bbAppListFromFirebase: listofBBAppsToDisplay,
         navBarColor: Colors.orange,
-        navBarStyle: TextStyle(color: Colors.black),
+        navBarStyle: const TextStyle(color: Colors.black),
       ),
     );
   }

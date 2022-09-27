@@ -1,6 +1,7 @@
 part of bb_apps;
 
-class BBAppHome extends StatelessWidget {
+// ignore: must_be_immutable
+class BBAppHome extends StatefulWidget {
   List? bbAppListFromFirebase;
   final TextStyle navBarStyle;
   final Color navBarColor;
@@ -12,14 +13,19 @@ class BBAppHome extends StatelessWidget {
       : super(key: key);
 
   @override
+  State<BBAppHome> createState() => _BBAppHomeState();
+}
+
+class _BBAppHomeState extends State<BBAppHome> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           elevation: 0,
-          backgroundColor: navBarColor,
+          backgroundColor: widget.navBarColor,
           title: Text(
             "BB Apps",
-            style: navBarStyle,
+            style: widget.navBarStyle,
           ),
           centerTitle: true,
         ),
@@ -28,17 +34,21 @@ class BBAppHome extends StatelessWidget {
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.done) {
                 List? accualData = snapshot.data as List?;
-                print("accualData$accualData");
-                return CustomListTile(
-                  appData: bbAppListFromFirebase ?? [],
+                return RefreshIndicator(
+                  onRefresh: () async {
+                    setState(() {});
+                  },
+                  child: CustomListTile(
+                    appData: accualData ?? [],
+                  ),
                 );
-              } else if (snapshot.connectionState == ConnectionState.waiting) {
+              } else if (snapshot.hasError) {
                 return const Center(
-                  child: CircularProgressIndicator(),
+                  child: Text("No app added yet"),
                 );
               } else {
                 return const Center(
-                  child: Text("No app added yet"),
+                  child: CircularProgressIndicator(),
                 );
               }
             }));

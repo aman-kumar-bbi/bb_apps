@@ -9,7 +9,9 @@ void openPlayStore(String urla, BuildContext context) async {
     );
   } else {
     final url = "https://play.google.com/store/apps/details?id=$urla";
+    // ignore: deprecated_member_use
     if (await url_luncher.canLaunch(url)) {
+      // ignore: deprecated_member_use
       await url_luncher.launch(
         url,
 
@@ -26,7 +28,9 @@ void openPlayStore(String urla, BuildContext context) async {
 
 void openAppStore(String id, BuildContext context) async {
   final url = "https://apps.apple.com/in/story/id$id?itscg=10000&itsct=";
+  // ignore: deprecated_member_use
   if (await url_luncher.canLaunch(url)) {
+    // ignore: deprecated_member_use
     await url_luncher.launch(
       url,
       forceSafariVC: false,
