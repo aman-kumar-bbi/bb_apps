@@ -39,7 +39,7 @@ class _BBAppHomeState extends State<BBAppHome> {
                     setState(() {});
                   },
                   child: CustomListTile(
-                    appData: accualData ?? [],
+                    appData: widget.bbAppListFromFirebase ?? [],
                   ),
                 );
               } else if (snapshot.hasError) {
